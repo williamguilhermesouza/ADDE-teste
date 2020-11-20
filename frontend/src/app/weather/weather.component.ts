@@ -18,18 +18,19 @@ export class WeatherComponent implements OnInit {
         const longitude = position.coords.longitude;
         const latitude = position.coords.latitude;
         console.log(longitude, latitude);
+        this.weatherService.getLocationWeather(latitude, longitude)
+          .subscribe(data => this.weather = data);
       })
     } else {
       console.log("No default location");
     }
 
-    this.weatherService.getWeather('niteroi', 'br')
-    .subscribe(data => this.weather = data);
+    
   }
 
   getWeather(city: string, region: string) {
     this.weatherService.getWeather(city, region)
-    .subscribe(data => this.weather =data);    
+      .subscribe(data => this.weather =data);    
   }
 
 }

@@ -14,4 +14,8 @@ export class WeatherService {
     return this.http.get<Weather>(`${this.API}/${city}/${region}`);
   }
 
+  getLocationWeather(lat, lon) {
+    return this.http.get<Weather>(`${this.API}/location-weather/${lat}/${lon}`);
+  }
+
 }

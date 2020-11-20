@@ -18,6 +18,13 @@ app.config.from_mapping(config)
 ## initializing cache
 cache = Cache(app)
 
+## get weather based on lat and lon location
+@app.route('/location-weather/<lat>/<lon>')
+@cache.memoize(900000)
+@cross_origin()
+def locationWeather(lat, lon):
+    return APIService.locationWeather(lat, lon)
+
 ## /city/region main route, with cache decorators
 @app.route('/<city>/<region>')
 @cache.memoize(900000)
