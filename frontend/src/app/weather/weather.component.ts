@@ -18,7 +18,8 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(city: string, region: string) {
-    return '';    
+    this.weatherService.getWeather(city, region)
+    .subscribe(data => this.weather =data);    
   }
 
 }

@@ -1,3 +1,27 @@
+.input-holder {
+    margin: 50px 0 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}  
+
+.input-holder input {
+    border: solid 2px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#search {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    opacity: .5;
+    border: 0;
+    border-radius: 5px;
+}
+
 .weather { 
     display: flex;
     align-content: center;

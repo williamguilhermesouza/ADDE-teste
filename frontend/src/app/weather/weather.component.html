@@ -1,9 +1,15 @@
+<div class="input-holder" (keydown.enter)="getWeather(city.value, region.value)">
+    <input placeholder="Cidade, ex: 'Niterói'" #city />
+    
+    <input placeholder="País, ex:'br'" #region />
+
+    <button (click)="getWeather(city.value, region.value)"><img src="../../assets/search.png" id="search"></button>
+  </div>
 <div class="weather">
     <div class="weather-box">
-        <p>Niteroi</p>
-        <img src="http://openweathermap.org/img/w/04d.png" />
-        <p>25 Graus</p>
-        <p>Chuva</p>
-        <button (click)="getWeather('niteroi','br')">jack</button>
+        <p>{{ weather.city }}</p>
+        <img src="{{weather.icon_url}}" />
+        <p>{{weather.temperature}}</p>
+        <p>{{weather.weather}}</p>
     </div>
 </div>
