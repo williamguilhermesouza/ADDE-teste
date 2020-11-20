@@ -1,0 +1,13 @@
+.weather { 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.weather-box {
+    min-width: 150px;
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: #777;
+}
