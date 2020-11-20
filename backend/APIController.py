@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_caching import Cache
+from flask_cors import cross_origin
 
 import APIService
 
@@ -20,5 +21,6 @@ cache = Cache(app)
 ## /city/region main route, with cache decorators
 @app.route('/<city>/<region>')
 @cache.memoize(900000)
+@cross_origin()
 def getWeather(city, region):
     return APIService.getWeather(city, region)
