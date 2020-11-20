@@ -13,6 +13,16 @@ export class WeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( position => {
+        const longitude = position.coords.longitude;
+        const latitude = position.coords.latitude;
+        console.log(longitude, latitude);
+      })
+    } else {
+      console.log("No default location");
+    }
+
     this.weatherService.getWeather('niteroi', 'br')
     .subscribe(data => this.weather = data);
   }
