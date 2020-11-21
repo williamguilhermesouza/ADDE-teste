@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Weather } from './weather';
 import { WeatherService } from './weather.service';
 
@@ -9,6 +10,7 @@ import { WeatherService } from './weather.service';
 })
 export class WeatherComponent implements OnInit {
   weather: Weather;
+  weather$: Observable<Weather>;
 
   constructor(private weatherService: WeatherService) { }
 
@@ -18,8 +20,9 @@ export class WeatherComponent implements OnInit {
         const longitude = position.coords.longitude;
         const latitude = position.coords.latitude;
         console.log(longitude, latitude);
-        this.weatherService.getLocationWeather(latitude, longitude)
-          .subscribe(data => this.weather = data);
+        //this.weatherService.getLocationWeather(latitude, longitude)
+        //  .subscribe(data => this.weather = data);
+        this.weather$ = this.weatherService.getLocationWeather(latitude, longitude);
       })
     } else {
       console.log("No default location");
@@ -29,8 +32,7 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(city: string, region: string) {
-    this.weatherService.getWeather(city, region)
-      .subscribe(data => this.weather =data);    
+    this.weather$ = this.weatherService.getWeather(city, region);
   }
 
 }
