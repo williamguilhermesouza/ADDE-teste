@@ -25,7 +25,7 @@ button {
 .weather { 
     display: flex;
     align-content: center;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
 }
 

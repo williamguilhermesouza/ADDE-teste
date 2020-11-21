@@ -6,17 +6,17 @@
     <button (click)="getWeather(city.value, region.value)"><img src="../../assets/search.png" id="search"></button>
   </div>
 <div class="weather">
-    <div class="weather-box" *ngIf=" weather$ | async as weather ">
-        <p>{{ weather.city }}</p>
-        <img src="{{weather.icon_url}}" />
-        <p>{{weather.temperature}}</p>
-        <p>{{weather.weather}}</p>
+    <div class="weather-box" id="location" *ngIf=" weather$ | async as locationWeather ">
+        <p>{{ locationWeather.city }}</p>
+        <img src="{{locationWeather.icon_url}}" />
+        <p>{{locationWeather.temperature}} °C</p>
+        <p>{{locationWeather.weather}}</p>
     </div>
 
-    <div class="weather-box" *ngFor="let w of weatherList$ | async ">
-        <p>{{ w.city }}</p>
-        <img src="{{w.icon_url}}" />
-        <p>{{w.temperature}}</p>
-        <p>{{w.weather}}</p>
+    <div class="weather-box" *ngFor="let weather of weatherList$ | async ">
+        <p>{{ weather.city }}</p>
+        <img src="{{weather.icon_url}}" />
+        <p>{{weather.temperature}} °C</p>
+        <p>{{weather.weather}}</p>
     </div>
 </div>

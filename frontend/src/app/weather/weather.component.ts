@@ -35,6 +35,8 @@ export class WeatherComponent implements OnInit {
   getWeather(city: string, region: string) {
     this.weatherList$ = this.weatherService.getWeather(city, region);
     console.log(this.weatherList$);
+    let loc = document.getElementById("location");
+    loc.style.display = "none";
   }
 
 }
