@@ -1,10 +1,12 @@
 import requests
+import json
+
 
 def locationWeather(lat, lon):
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
     ## building the query to the api
-    querystring = {"lat":lat,"lon":lon,"units":"metric"}
+    querystring = {"lat":lat,"lon":lon,"units":"metric", "lang": "pt"}
 
     ## headers of the query with the key and host
     headers = {
@@ -19,7 +21,7 @@ def locationWeather(lat, lon):
     json_response = api_response.json()
     temperature = json_response['main']['temp']
     city = json_response['name']
-    weather = json_response['weather'][0]['main']
+    weather = json_response['weather'][0]['description']
     icon_code = json_response['weather'][0]['icon']
     icon_url = f'http://openweathermap.org/img/w/{icon_code}.png'
 
@@ -39,10 +41,10 @@ def locationWeather(lat, lon):
   
 ## main get weather request
 def getWeather(city, region):
-    url = "https://community-open-weather-map.p.rapidapi.com/weather"
+    url = "https://community-open-weather-map.p.rapidapi.com/forecast/daily"
 
     ## building the query to the api
-    querystring = {"q":f'{city},{region}',"units":"metric"}
+    querystring = {"q":f'{city},{region}',"units":"metric","lang":"pt", "cnt": 7}
 
     ## headers of the query with the key and host
     headers = {
@@ -55,20 +57,24 @@ def getWeather(city, region):
 
     ## parsing response to json and extracting desired data
     json_response = api_response.json()
-    temperature = json_response['main']['temp']
-    city = json_response['name']
-    weather = json_response['weather'][0]['main']
-    icon_code = json_response['weather'][0]['icon']
-    icon_url = f'http://openweathermap.org/img/w/{icon_code}.png'
+    city = json_response['city']['name']
+    forecasts = json_response['list']
+
+    f = map(lambda data: (
+        data := {
+            'city': city,
+            'weather': data['weather'][0]['description'],
+            'temperature': data['temp']['day'],
+            'icon_code': data['weather'][0]['icon'],
+            'icon_url': 'http://openweathermap.org/img/w/' + data['weather'][0]['icon'] + '.png'
+        }
+    ), forecasts)
+
+    f = list(f)
+
 
     ## creating desired object with data
-    response = { 
-        'city': city, 
-        'weather': weather,
-        'temperature': temperature,
-        'icon_code':icon_code,
-        'icon_url': icon_url
-         }
+    response = json.dumps(f)
 
     ## returning desired response
     print(response)

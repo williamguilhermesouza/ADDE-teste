@@ -9,8 +9,9 @@ import { WeatherService } from './weather.service';
   styleUrls: ['./weather.component.css'],
 })
 export class WeatherComponent implements OnInit {
-  weather: Weather;
+  weather: Weather[];
   weather$: Observable<Weather>;
+  weatherList$: Observable<Weather[]>;
 
   constructor(private weatherService: WeatherService) { }
 
@@ -32,7 +33,8 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(city: string, region: string) {
-    this.weather$ = this.weatherService.getWeather(city, region);
+    this.weatherList$ = this.weatherService.getWeather(city, region);
+    console.log(this.weatherList$);
   }
 
 }

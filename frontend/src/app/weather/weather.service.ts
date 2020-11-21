@@ -12,7 +12,7 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getWeather(city, region) {
-    return this.http.get<Weather>(`${this.API}${city}/${region}`);
+    return this.http.get<Weather[]>(`${this.API}${city}/${region}`);
   }
 
   getLocationWeather(lat, lon) {

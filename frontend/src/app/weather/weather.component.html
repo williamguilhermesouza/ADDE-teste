@@ -12,4 +12,11 @@
         <p>{{weather.temperature}}</p>
         <p>{{weather.weather}}</p>
     </div>
+
+    <div class="weather-box" *ngFor="let w of weatherList$ | async ">
+        <p>{{ w.city }}</p>
+        <img src="{{w.icon_url}}" />
+        <p>{{w.temperature}}</p>
+        <p>{{w.weather}}</p>
+    </div>
 </div>
