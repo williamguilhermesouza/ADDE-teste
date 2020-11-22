@@ -29,6 +29,14 @@ export class WeatherComponent implements OnInit {
       console.log("No default location");
     }
 
+    if (window.innerWidth < 800) {
+      let wDiv = document.getElementById("weather-div");
+      
+      wDiv.classList.remove("weather-initial");
+      wDiv.classList.remove("weather");
+      wDiv.classList.add("weather-vertical");
+    }
+
     
   }
 
@@ -44,6 +52,19 @@ export class WeatherComponent implements OnInit {
     let wDiv = document.getElementById("weather-div");
     wDiv.classList.remove("weather-initial");
     wDiv.classList.add("weather");
+  }
+
+  onResize(event): void {
+    let width = event.target.innerWidth;
+    let wDiv = document.getElementById("weather-div");
+    if (width < 800) {
+      wDiv.classList.remove("weather-initial");
+      wDiv.classList.remove("weather");
+      wDiv.classList.add("weather-vertical");
+    } else {
+      wDiv.classList.remove("weather-vertical");
+      wDiv.classList.add("weather");
+    }
   }
 
 }

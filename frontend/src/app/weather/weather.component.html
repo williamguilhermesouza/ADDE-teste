@@ -5,7 +5,7 @@
 
     <button (click)="getWeather(city.value, region.value)"><img src="../../assets/search.png" id="search"></button>
   </div>
-<div class="weather-initial" id="weather-div">
+<div class="weather-initial" id="weather-div" (window:resize)="onResize($event)">
     <div class="weather-box" id="location" *ngIf=" weather$ | async as locationWeather ">
         <p>{{ locationWeather.city }}</p>
         <img src="{{locationWeather.icon_url}}" />
