@@ -35,8 +35,15 @@ export class WeatherComponent implements OnInit {
   getWeather(city: string, region: string) {
     this.weatherList$ = this.weatherService.getWeather(city, region);
     console.log(this.weatherList$);
+
+    // removing initial card
     let loc = document.getElementById("location");
     loc.style.display = "none";
+
+    // changing style
+    let wDiv = document.getElementById("weather-div");
+    wDiv.classList.remove("weather-initial");
+    wDiv.classList.add("weather");
   }
 
 }

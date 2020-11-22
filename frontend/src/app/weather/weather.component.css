@@ -21,6 +21,12 @@ button {
     border: 0;
     border-radius: 5px;
 }
+.weather-initial {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
 
 .weather { 
     display: flex;
