@@ -33,7 +33,7 @@ def locationWeather(lat, lon):
         'city': city,
         'weekday': 'Hoje',
         'weather': weather,
-        'temperature': temperature,
+        'temperature': int(temperature),
         'icon_code':icon_code,
         'icon_url': icon_url
          }
