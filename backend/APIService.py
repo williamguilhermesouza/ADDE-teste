@@ -1,5 +1,6 @@
 import requests
 import json
+from datetime import date
 
 
 def locationWeather(lat, lon):
@@ -19,15 +20,18 @@ def locationWeather(lat, lon):
 
     ## parsing response to json and extracting desired data
     json_response = api_response.json()
+
     temperature = json_response['main']['temp']
     city = json_response['name']
     weather = json_response['weather'][0]['description']
     icon_code = json_response['weather'][0]['icon']
     icon_url = f'http://openweathermap.org/img/w/{icon_code}.png'
 
+
     ## creating desired object with data
     response = { 
-        'city': city, 
+        'city': city,
+        'weekday': 'Hoje',
         'weather': weather,
         'temperature': temperature,
         'icon_code':icon_code,
@@ -55,6 +59,9 @@ def getWeather(city, region):
     ## request response object to be treated
     api_response = requests.request("GET", url, headers=headers, params=querystring)
 
+    ## list of week days to parse into de card data
+    week_days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+
     ## parsing response to json and extracting desired data
     json_response = api_response.json()
     city = json_response['city']['name']
@@ -63,6 +70,7 @@ def getWeather(city, region):
     f = map(lambda data: (
         data := {
             'city': city,
+            'weekday': week_days[date.isoweekday(date.fromtimestamp(data['dt'])) - 1],
             'weather': data['weather'][0]['description'],
             'temperature': int(data['temp']['day']),
             'icon_code': data['weather'][0]['icon'],
@@ -70,7 +78,12 @@ def getWeather(city, region):
         }
     ), forecasts)
 
+    ## transform map object to list
     f = list(f)
+
+    ## changing week days to today and tomorrow
+    f[0]['weekday'] = 'Hoje'
+    f[1]['weekday'] = 'Amanhã'
 
 
     ## creating desired object with data

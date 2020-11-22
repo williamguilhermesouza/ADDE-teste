@@ -8,6 +8,7 @@
 <div class="weather-initial" id="weather-div" (window:resize)="onResize($event)">
     <div class="weather-box" id="location" *ngIf=" weather$ | async as locationWeather ">
         <p>{{ locationWeather.city }}</p>
+        <p>{{ locationWeather.weekday }}</p>
         <img src="{{locationWeather.icon_url}}" />
         <p>{{locationWeather.temperature}} °C</p>
         <p>{{locationWeather.weather}}</p>
@@ -15,6 +16,7 @@
 
     <div class="weather-box" *ngFor="let weather of weatherList$ | async ">
         <p>{{ weather.city }}</p>
+        <p>{{ weather.weekday }}</p>
         <img src="{{weather.icon_url}}" />
         <p>{{weather.temperature}} °C</p>
         <p>{{weather.weather}}</p>
