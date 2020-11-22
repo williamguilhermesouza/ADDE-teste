@@ -3,6 +3,10 @@
 Este projeto é parte do teste técnico proposto pela ADDE sistemas, no qual o objetivo era desenvolver um sistema contendo frontend
 e backend capaz de mostrar o clima atual e a previsão do tempo a partir do input de um cidade e/ou localização do usuário.
 
+## Exemplo de uso
+
+![Sample frontend](https://raw.githubusercontent.com/williamguilhermesouza/ADDE-teste/master/TesteADDE.gif)
+
 ## Backend
 No backend foi utilizada a tecnologia Python, na versão 3.9 com o framework Flask para: 
 * Comunicação com a api externa OpenWeatherMap para pegar os dados de clima filtrado por cidade/região.
