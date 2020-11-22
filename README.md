@@ -19,3 +19,25 @@ pelo navegador.
 * Foi utilizada a tipagem de dados do typescript, onde é recebido um objeto do tipo Weather do backend, que devve estar em conformidade
 com os atributos esperados
 * Após a consulta pelo backend é exibido para o usuário os dados através da temperatura atual, cidade, clima, e de um indicativo visual.
+
+## Como utilizar
+
+### Backend (Windows)
+
+Ativar o ambiente virtual venv com as bibliotecas necessárias:
+
+`venv\Scripts\activate`
+
+Exportar a variável FLASK_APP, para ser usada pelo flask
+
+`set FLASK_APP=APIController.py`
+
+Iniciar o Flask
+
+`flask run`
+
+### Frontend (Windows)
+
+Entrar na pasta de frontend e iniciar o angular (deve estar instalado) com o comando:
+
+`ng serve -o`
