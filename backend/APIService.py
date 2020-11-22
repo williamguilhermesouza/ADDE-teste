@@ -64,7 +64,7 @@ def getWeather(city, region):
         data := {
             'city': city,
             'weather': data['weather'][0]['description'],
-            'temperature': data['temp']['day'],
+            'temperature': int(data['temp']['day']),
             'icon_code': data['weather'][0]['icon'],
             'icon_url': 'http://openweathermap.org/img/w/' + data['weather'][0]['icon'] + '.png'
         }
