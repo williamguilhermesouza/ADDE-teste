@@ -1,4 +1,4 @@
-{
+export default {
   "particles": {
     "number": {
       "value": 80,
@@ -106,5 +106,12 @@
       }
     }
   },
-  "retina_detect": true
+  "retina_detect": true,
+  "background": {
+    "color": "#050543",
+    "image": "",
+    "position": "50% 50%",
+    "repeat": "no-repeat",
+    "size": "cover"
+  }
 }

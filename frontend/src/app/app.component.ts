@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tsParticles } from 'tsparticles';
 
-import particlesConfig from './default.js';
+import particlesConfig from './particles.js';
 
 @Component({
   selector: 'app-root',
