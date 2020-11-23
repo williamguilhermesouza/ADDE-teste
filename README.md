@@ -21,7 +21,7 @@ O backend da aplicação pode ser testado em funcionamento através do endpoint:
 
 ou:
 
-`http://addeweather.tk`
+`http://addeweatherback.tk`
 
 ## Frontend
 No Frontend foi utilizado Typescript junto ao framework Angular 11, com o objetivo de capturar entrada do usuário através de um input, 
@@ -31,6 +31,14 @@ pelo navegador.
 * Foi utilizada a tipagem de dados do typescript, onde é recebido um objeto do tipo Weather do backend, que devve estar em conformidade
 com os atributos esperados
 * Após a consulta pelo backend é exibido para o usuário os dados através da temperatura atual, cidade, clima, e de um indicativo visual.
+
+O frontend da aplicação integrado ao backend pode ser testado em funcionamento através do endereço:
+
+``http://addeweather.tk`
+
+ou pelo dns da AWS:
+
+`http://ec2co-ecsel-1w7gp4r1ox5yt-1559785772.us-east-1.elb.amazonaws.com/get-weather`
 
 ## Como utilizar
 
