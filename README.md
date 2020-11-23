@@ -45,3 +45,15 @@ Iniciar o Flask
 Entrar na pasta de frontend e iniciar o angular (deve estar instalado) com o comando:
 
 `ng serve -o`
+
+## Testes
+
+### Backend
+
+Como biblioteca para os testes do backend foi usado o unittest (para mock da API externa) e o nose para os testes propriamente ditos
+Para rodar os testes feitos para o APIService use:
+
+`nosetests backend`
+
+Os testes devem retornar "OK"
+

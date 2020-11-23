@@ -2,7 +2,7 @@ from flask import Flask
 from flask_caching import Cache
 from flask_cors import cross_origin
 
-import APIService
+from backend import APIService
 
 ## configuring cache
 config = {
