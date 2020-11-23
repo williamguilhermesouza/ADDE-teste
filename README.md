@@ -15,6 +15,14 @@ No backend foi utilizada a tecnologia Python, na versão 3.9 com o framework Fla
 * Uso de uma rota exclusiva para recuperar os dados usando localização (latitude e longitude)
 * Uso de rota exclusiva para recuperar os dados de previsão de 7 dias, utilizando o nome da Cidade desejada e Região.
 
+O backend da aplicação pode ser testado em funcionamento através do endpoint:
+
+`http://18.224.25.40/`
+
+ou:
+
+`http://addeweather.tk`
+
 ## Frontend
 No Frontend foi utilizado Typescript junto ao framework Angular 11, com o objetivo de capturar entrada do usuário através de um input, 
 e exibir dados recuperados do backend com base nessa entrada. Por padrão a previsão utilizada a localização atual do usuário, fornecida
@@ -56,4 +64,3 @@ Para rodar os testes feitos para o APIService use:
 `nosetests backend`
 
 Os testes devem retornar "OK"
-
