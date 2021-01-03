@@ -1,4 +1,4 @@
-# Teste técnico ADDE Sistemas
+# Sistema de Previsão de Tempo
 
 Este projeto é parte do teste técnico proposto pela ADDE sistemas, no qual o objetivo era desenvolver um sistema contendo frontend
 e backend capaz de mostrar o clima atual e a previsão do tempo a partir do input de um cidade e/ou localização do usuário.
